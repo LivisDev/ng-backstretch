@@ -5,7 +5,8 @@ module.exports = function(grunt) {
       options: {
         globals: {
           angular: true
-        }
+        },
+        reporterOutput: ''
       }
     },
 
