@@ -103,7 +103,7 @@ directive('backstretch', ['$window', '$timeout', function($window, $timeout) {
             background_width = root_width,
 
             // Check which height-element that should be used
-            root_height = element[0].offsetHeight > 0 ? element[0].offsetHeight : element[0].offsetParent.offsetHeight,
+            root_height = element[0].offsetHeight > 0 ? element[0].offsetHeight : (angular.isObject(element[0].offsetParent) ? element[0].offsetParent.offsetHeight : 0),
             background_height = background_width / scope.ratio,
 
             background_offset;
