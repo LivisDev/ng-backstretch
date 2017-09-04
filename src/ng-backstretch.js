@@ -87,13 +87,22 @@ directive('backstretch', ['$window', '$timeout', function($window, $timeout) {
         scope.ratio = this.width / this.height;
 
         // perform an initial sizing
-        scope.resize();
+        scope._resize();
 
         // display the first image
         scope.show(scope.index++);
       };
 
       scope.resize = function(e) {
+        $timeout(function(){
+          scope._resize(e);
+        }, 0.5*scope.fade*1000);
+        $timeout(function(){
+          scope._resize(e);
+        }, scope.fade*1000);
+      };
+
+      scope._resize = function(e) {
 
         // set some default css
         var background_css = {left: 0, top: 0, width: 'auto', height: 'auto'};
