@@ -95,19 +95,11 @@ directive('backstretch', ['$window', '$timeout', function($window, $timeout) {
 
       scope.resize = function(e) {
         if (scope.fade > 0) {
-          $timeout(function(){
-            scope._resize(e);
-          }, 0.5*(scope.fade*1000));
-          $timeout(function(){
-            scope._resize(e);
-          }, (scope.fade*1000));
-          $timeout(function(){
-            scope._resize(e);
-          }, (scope.fade*1000)+200);
+          $timeout(scope._resize, 0.5*(scope.fade*1000));
+          $timeout(scope._resize, (scope.fade*1000));
+          $timeout(scope._resize, (scope.fade*1000)+500);
         } else {
-          $timeout(function(){
-            scope._resize(e);
-          }, 1000);
+          $timeout(scope._resize, 1000);
         }
       };
 
